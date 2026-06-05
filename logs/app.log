@@ -1,0 +1,4 @@
+2026-06-05 15:40:30 | INFO     | app.core.logging_config | Logging configured | level=INFO | env=development
+2026-06-05 15:40:30 | INFO     | app.main | Starting Enterprise Knowledge Assistant...
+2026-06-05 15:40:30 | INFO     | app.db.database | Database tables verified/created.
+2026-06-05 15:40:30 | INFO     | app.main | Database initialized.
