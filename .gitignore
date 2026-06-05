@@ -1,0 +1,21 @@
+# Environment
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+
+# Generated project files
+data/uploads/
+data/faiss_index/
+data/*.db
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
