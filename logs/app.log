@@ -2,3 +2,12 @@
 2026-06-05 15:40:30 | INFO     | app.main | Starting Enterprise Knowledge Assistant...
 2026-06-05 15:40:30 | INFO     | app.db.database | Database tables verified/created.
 2026-06-05 15:40:30 | INFO     | app.main | Database initialized.
+2026-06-05 15:46:48 | INFO     | app.pipeline.document_processor | Processing document: ml_introduction.txt (id=93521571-c2ca-4f80-9e9a-9cb91090c339)
+2026-06-05 15:46:48 | INFO     | app.pipeline.document_processor | Document processed: 8 chunks, ~370 words
+2026-06-05 15:46:48 | INFO     | app.pipeline.embedding_pipeline | Embedding 8 chunks...
+2026-06-05 15:46:48 | INFO     | app.pipeline.embedding_pipeline | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-06-05 15:47:17 | WARNING  | huggingface_hub.file_download | Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-06-05 15:47:25 | INFO     | app.pipeline.embedding_pipeline | Embedding model loaded.
+2026-06-05 15:47:26 | INFO     | app.pipeline.embedding_pipeline | Created new FAISS index with dimension=384
+2026-06-05 15:47:26 | INFO     | app.pipeline.embedding_pipeline | Added 8 chunks. Total vectors: 8
+2026-06-05 15:47:26 | INFO     | app.api.endpoints.upload | Document ready: ml_introduction.txt (8 chunks)

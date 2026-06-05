@@ -1,0 +1,55 @@
+Introduction to Machine Learning
+
+Machine learning is a subset of artificial intelligence that enables systems to learn from data
+and improve their performance over time without being explicitly programmed for each task.
+
+Types of Machine Learning
+
+Supervised Learning
+In supervised learning, the model is trained on labeled data — examples where both the input
+and the correct output are provided. The model learns to map inputs to outputs by minimizing
+prediction errors. Common algorithms include linear regression, decision trees, and neural networks.
+Example applications: email spam detection, image classification, price prediction.
+
+Unsupervised Learning
+Unsupervised learning finds patterns in data without predefined labels. The model must discover
+structure on its own. Common techniques include clustering (K-Means, DBSCAN), dimensionality
+reduction (PCA, t-SNE), and association rule learning.
+Example applications: customer segmentation, anomaly detection, topic modeling.
+
+Reinforcement Learning
+In reinforcement learning, an agent learns by interacting with an environment and receiving
+rewards or penalties based on its actions. The goal is to maximize cumulative reward over time.
+Example applications: game-playing AI (AlphaGo), robotics, recommendation systems.
+
+Key Concepts
+
+Overfitting and Underfitting
+Overfitting occurs when a model learns the training data too well, including noise, and fails
+to generalize to new data. Underfitting occurs when the model is too simple to capture
+underlying patterns. The bias-variance tradeoff governs this balance.
+
+Cross-Validation
+Cross-validation is a technique to assess how well a model generalizes. The data is split into
+k folds; the model is trained on k-1 folds and tested on the remaining fold, repeating k times.
+
+Feature Engineering
+Feature engineering is the process of using domain knowledge to transform raw data into
+informative features that improve model performance. It is often more impactful than
+algorithm selection.
+
+Deep Learning
+Deep learning uses neural networks with many layers (hence "deep") to learn hierarchical
+representations from data. Convolutional Neural Networks (CNNs) excel at image tasks;
+Recurrent Neural Networks (RNNs) and Transformers excel at sequential data like text.
+
+Common Evaluation Metrics
+- Classification: Accuracy, Precision, Recall, F1-Score, ROC-AUC
+- Regression: MAE, MSE, RMSE, R-squared
+- Clustering: Silhouette Score, Davies-Bouldin Index
+
+Popular Frameworks
+- Scikit-learn: Traditional ML algorithms
+- TensorFlow / Keras: Deep learning, production deployment
+- PyTorch: Research-friendly deep learning
+- XGBoost / LightGBM: Gradient boosting (strong baselines for tabular data)
