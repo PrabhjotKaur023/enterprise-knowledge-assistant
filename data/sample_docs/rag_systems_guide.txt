@@ -1,0 +1,83 @@
+RAG Systems: Retrieval-Augmented Generation
+
+Overview
+
+Retrieval-Augmented Generation (RAG) is an AI architecture that combines large language models
+with an external knowledge retrieval step. Instead of relying solely on knowledge baked into
+model weights during training, RAG systems fetch relevant information from a document store
+at inference time and include it in the model's context.
+
+Why RAG?
+
+Large language models have two core limitations:
+1. Knowledge cutoff: Training data has a fixed date. Events after that date are unknown.
+2. Hallucination: LLMs can generate confident but incorrect information.
+
+RAG addresses both by grounding responses in retrieved, verifiable documents.
+
+Architecture
+
+A typical RAG pipeline has four stages:
+
+1. Indexing (offline)
+   - Load documents (PDF, DOCX, TXT, web pages, databases)
+   - Split into smaller chunks (typically 256-1024 tokens)
+   - Encode each chunk with an embedding model
+   - Store vectors in a vector database (FAISS, Pinecone, Weaviate, Chroma)
+
+2. Retrieval (online, per query)
+   - Encode the user query using the same embedding model
+   - Perform semantic similarity search against the vector database
+   - Return top-k most similar chunks (typically k=3-10)
+
+3. Augmentation
+   - Combine retrieved chunks into a context string
+   - Inject context into the LLM prompt alongside the user query
+
+4. Generation
+   - LLM generates a response grounded in the retrieved context
+   - Optionally, citations point back to source documents
+
+Embedding Models
+
+Embedding models convert text to dense vectors where semantic similarity corresponds to
+geometric proximity. Popular choices:
+- all-MiniLM-L6-v2 (384 dims): Fast, lightweight, good for CPU
+- all-mpnet-base-v2 (768 dims): Better quality, slower
+- text-embedding-ada-002 (OpenAI, 1536 dims): High quality, API cost
+
+Vector Databases
+
+- FAISS: Facebook AI Similarity Search — local, in-memory, excellent for <1M vectors
+- Pinecone: Managed cloud vector DB, simple to scale
+- Weaviate: Open-source, supports hybrid search (keyword + semantic)
+- Chroma: Easy to use, good for prototyping
+
+Chunking Strategies
+
+Fixed-size chunking: Simple, predictable. Overlap (e.g., 10-20% of chunk size) reduces
+the chance of cutting context at a semantically important boundary.
+
+Semantic chunking: Splits at sentence or paragraph boundaries. Better quality but
+more complex to implement.
+
+Recursive character splitting: LangChain's default — tries paragraph, then sentence,
+then word boundaries. Good balance of quality and simplicity.
+
+Evaluation
+
+Evaluating RAG systems is harder than evaluating standard ML models. Key metrics:
+
+- Retrieval precision: Are the retrieved chunks actually relevant?
+- Answer faithfulness: Does the answer stay within the retrieved context?
+- Answer relevance: Does the answer actually address the question?
+
+Frameworks like RAGAS (RAG Assessment) automate these evaluations.
+
+Advanced Techniques
+
+- HyDE (Hypothetical Document Embeddings): Generate a hypothetical answer, embed it,
+  and use that for retrieval. Often improves recall.
+- Re-ranking: Use a cross-encoder to re-score retrieved results for better precision.
+- Query expansion: Rephrase the query in multiple ways and merge results.
+- Parent-child chunking: Index small chunks but retrieve larger parent chunks for context.
