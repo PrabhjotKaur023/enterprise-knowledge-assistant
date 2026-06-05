@@ -210,3 +210,7 @@ enterprise-knowledge-assistant/
 - **Docker** — containerization
 - **pytest** — testing
 - **GitHub Actions** — CI/CD
+
+⭐ If you found this project useful, consider starring the repository.
+
+Built with ❤️ using FastAPI, LangChain, FAISS, and Generative AI.
